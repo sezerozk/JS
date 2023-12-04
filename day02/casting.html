@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+
+        const yas = prompt("Yasinizi giriniz");
+        console.log(typeof(yas));//string ** prompt la girilen degerler her zaman string olarak kabul edilir.
+
+        let result = yas + 2;
+        console.log(result)//312
+
+        result = (Number)(yas) + 2;
+        console.log(result)//33
+        /*
+        0, null, undefined, Nan ve "" degerleri booleana cast edildiginde false degeri doner. 
+        Geriye kalan hersey true olarak doner.
+        */
+        const s1 = 5;
+        const s2 = -7;
+        const isim = "John"
+
+        console.log(Boolean(isim));//true
+        console.log(Boolean(s1));//true
+        console.log(Boolean(s2));//true
+
+        console.log(Boolean(""));//false
+        console.log(Boolean(" "));//true
+
+        let x;
+        console.log(Boolean(x));//false x undefined oldugundan false degeri donuyor.
+        
+        let sayi = 123;
+        console.log(sayi++)//123 ** Once yazdirma islemi yapilip hemen sonrasinda 1 artirma islemi yapiliyor
+        console.log(++sayi)//Bir onceki satirdan 124 olarak gelen degiskene once 1 artirilip 125 degeri ataniyor
+                           //daha sonra yazdirma islemi yapiliyor
+
+
+
+
+
+    </script>
+
+</body>
+</html>

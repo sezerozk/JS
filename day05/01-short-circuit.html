@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const x = 5;
+        const y = 4;
+        const z = 14;
+
+        console.log(x>y && z>y && y==4)//true
+        console.log(x>y && z>y && y)//4 Burada son kisimda bir mantiksal ifade degil y degeri oldugundan JS 
+        //verilen y degerini true olarak kabul ediyor ve && operatorunun ozelligi olarak false bulana kadar 
+        //devam ettigi ve false bulamadigi icin ulastigi en son degisken olan y'nin degeri olan 4'u consola yazdi.
+        //short circuit
+        z>5 && z<25 && alert("Congrutulations!")
+        /*
+        if le yapilmis uzun hali:
+        if(z>5 && z<25){
+            alert("Congrutulations!")
+        }
+        */
+
+        //OR ||
+        console.log(z<y || y<x || y>z);//true
+        y==35 || alert("Non Izmir") 
+        //Sonuc olarak and icin onceki ifadelerin doru olmasi halinde or icin onceki ifadelerin yanlis
+        //olmasi halinde en sonda verilen islem tipki bir if blogunun icindeki kodlar gibi calsitiriliyor.
+        //if den farki ise bu islemin tek satirda yapilabilmesi.           
+            
+ 
+
+    </script>
+</body>
+</html>

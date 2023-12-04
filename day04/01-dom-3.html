@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 class="name">Ali Gel</h1>
+    <p class="mesaj"></p>
+
+    <script>
+
+        const name = document.querySelector(".name").innerText;
+        console.log(name);  
+        document.querySelector(".mesaj").innerHTML = `Merhaba ${name}`
+        console.log(document.querySelector(".mesaj").innerHTML)
+        document.querySelector(".mesaj").classList.add("alindi")//Burada classList.add ile class degerine ekleme yaptik
+        console.log(document.querySelector(".mesaj").className)//Burada da className ile class degerini yazdirdik
+        //Bir for elemaninin degerini okumak ya da degistirmek icin "value" kullanilir.
+         
+         
+
+
+
+
+    </script>
+
+</body>
+</html>

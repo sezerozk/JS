@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="txtsalary" oninput="setSalary()">
+    <div>
+        <input type="radio" name="statusEl" id="rdRetaired" checked value="r" onchange="setSalary()">
+        <label for="rdRetaired">Retaired</label>
+        <input type="radio" name="statusEl" id="rdEmployee" value="e" onchange="setSalary()">
+        <label for="rdEmployee">Employee</label>
+    </div>
+    <h2 id="lblResoult"></h2>
+
+
+    <script>
+        //Label in icine koydugumuz for un icine radio butonunun id sini verdigimiz icin
+        //retaired ifadesini ustune tiklandigi zaman butonu tiklamis oluyor.
+        //Radio butonlarinin name degerleri ayni oldugu icin ikisinden sadece birisi secilebiliyor.
+        function setSalary() {
+            const txtSalary = document.querySelector("#txtsalary");
+            const statusEl = document.querySelector("input[name='statusEl']:checked");//En sona yazdigimiz 
+            //checked ifadesi verilen butonlardan secili olani almamizi saglayacak
+            const lblResoult = document.querySelector("#lblResoult");
+
+            let salary = txtSalary.value;
+            const status = statusEl.value;
+
+            salary = status == "e" ? salary * 0.95 : salary * 0.97;//Burada ternary nin bir ornegini goruyoruz
+
+            lblResoult.innerHTML = salary.toFixed(2);//toFixed(2) virgulden sonraki kisim icin sadece ilk iki rakamin 
+                                                     //gorunmesini sagliyor.   
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

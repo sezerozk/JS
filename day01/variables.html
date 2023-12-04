@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>Variables</H1>
+    <script>
+        let birthDate = "04.07.2020";
+        console.log(birthDate)
+        let name = "Sezer";
+        console.log("Merhaba",name, typeof(name))
+        let salary = 5500; 
+        console.log(salary, typeof(salary))
+
+        let isRetared = true;
+        console.log(isRetared, typeof(isRetared))
+
+        let age;
+        console.log(age, typeof(age))
+        //"const" ifadesi JS te sabit degisken(!) tanimlamak icin kullanilir. Java'daki final anahtar 
+        //kelimesine benziyor
+        
+        console.log(isNaN(salary))//false
+        //isNan()=> is not a number degiskenin rakam olup olmadigini kontrol ediyor rakamsa 
+        //false donduruyor
+        //JS te degisken tanimlamk icin anahtar kelimelerden digeri 'var' dir. Fakat var anahtar kelimesi 
+        //artik tercih edilmiyor. Cunku bu anahtar kelime ile calisildiginda bazi problemler ortyata 
+        // cikabiliyor. Ornegin; var la degisken 
+        //tanimlandiginda ayni isimle birden fazla degisken tanimlanmasina izin verir.
+    </script>
+</body>
+</html>

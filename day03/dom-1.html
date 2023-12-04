@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="title" style="color: red;">
+        Document <span style="color: blue;">Object</span> Model
+    </h1>
+    //ul.menu>li*4>lorem3 asagidaki listeyi yapmanin kisa yolu
+    <ul class="menu">
+        <li>Lorem, ipsum dolor.</li>
+        <li>Odit, illo labore?</li>
+        <li>Tempore, sapiente repellendus.</li>
+        <li>Doloremque, cum nam!</li>
+    </ul>
+
+    <p class="about">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi harum qui aspernatur blanditiis? Porro eum
+        explicabo et fuga <em>maxime rerum aliquam</em> cumque impedit minus. Necessitatibus eveniet dolorum ab non porro.
+        Accusamus soluta quae quo ex nesciunt, id dolorum consectetur at tenetur tempore, culpa officia animi cum?
+        Eaque, necessitatibus assumenda, asperiores, facilis quisquam id amet quidem suscipit praesentium ullam quos
+        impedit.
+    </p>
+
+
+    <script>
+        //Bir web sayfasi icerisindeki diger tum nesnelerin sahibi olan ana nesneye document object
+        //denir. Document nesnesi diger tum web sayfamizi temsil eder. Eger sayfa icerisindeki bir
+        //nesneye ulasmak istersek "document" nesnesi kullanilir.
+        //Nesnelere ulasmak icin su yolu kullanabailiriz=> document.querySelector(selector); Bu yontem
+        //ile ayni anda bir eleman secebiliyoruz. Ayni ozelliklere sahip birden fazla eleman secilecekse
+        // document.querySelectorAll(selector); kullanilabilir.
+
+        const title = document.querySelector(".title")
+        console.log(title)
+        const lastMenuitem = document.querySelector("ul.menu li:last-child")
+        const thirdLastMenuitem = document.querySelector("ul.menu li:nth-child(3)")
+        console.log(thirdLastMenuitem)
+        console.log(lastMenuitem)
+        
+        //Bir elementin icindeki yaziyi okumak veya degistirmek icin "innerText" kullanilir
+        //Bir elementin icindeki HTML'i okumak ya da degistirmek icin "innerHTML" kullanilir
+        
+
+
+
+    </script>
+
+
+</body>
+
+</html>

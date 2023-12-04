@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="txtName" placeholder="Enter your name">
+    <button onclick="sayHello()">Say Hello</button>
+
+    <script>
+        function sayHello(){
+            const name = document.querySelector('#txtName').value;//Elementin degerine erismek istedigimiz icin
+            //value kullandik.innerText ya da innerHtml degerini degil aradaki metni almamizi sagliyor.
+            alert(`Merhaba ${name}`)
+            //alert("Merhaba" + name) yukaridaki kodla ayni islevi gorur fakat hocaya gore yukaridaki gibi
+            //yazmak uzun kodlamalarda daha okunabilir bir kod olmasini sagliyor.
+        }
+        //Fonksiyonlarin en temel ozelliklerinden birisi yalnizca cagirilinca calismasidir
+        //Yukarida ekledigimiz onclick bir event dir ve yazdigimiz methodu butona bagladigimiz 
+        //icin alert i sadece bitona tiklandiginda calistirir.
+         
+
+    </script>
+
+</body>
+</html>

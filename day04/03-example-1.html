@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="number" id="sayi1" placeholder="sayi 1">
+    <input type="number" id="sayi2" placeholder="sayi 2">
+    <button style="color: white; background-color: black;" onclick="sum()">Sum</button>
+    <p id="lblResult"></p>
+
+    <script>
+
+         function sum(){
+            const txtnum1 = Number(document.querySelector("#sayi1").value);
+            const txtnum2 = Number(document.querySelector("#sayi2").value);
+            const lblResult = docu   ment.querySelector("#lblResult");
+            //Yukarida input un tipi number olarak belirtilmesine ragmen form elemanlarindan gelen 
+            //her sey string olarak kabul edilir kurami geregi 20. satirda yapilan toplami islemi matematisel
+            //bir islem olarak degil string birlestirme islemi olarak gerceklesti. O sebeble casting islemi yapilmali.
+
+            const result = txtnum1+txtnum2;
+            lblResult.innerText = result
+         }
+
+
+    </script>
+
+
+</body>
+</html>
