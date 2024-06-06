@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    
+
+
+    <script>
+        function getAge1(){
+            const age = 2023-2000;
+            alert(age);
+        }
+
+       // getAge1();
+
+       function getAge2(birthYear){
+        const dateTime = new Date(); 
+        //const age = 2023 - birthYear;
+        //alert(age);
+        console.log(dateTime);
+       }
+
+       //getAge2(2001)
+
+       function getAge3(birthYear){
+        const dateTime = new Date();//Sistemde o sirada kayitli olan tarih ve saat bilgini almamizi sagliyor 
+        const currentYear = dateTime.getFullYear();//Bu sekilde tarih bilgisinin icerisinden yil bilgini aliyoruz.
+        const age = currentYear - birthYear;
+        alert(age);
+        
+        
+       }
+       getAge3(2002)
+
+    </script>
+</body>
+</html>
