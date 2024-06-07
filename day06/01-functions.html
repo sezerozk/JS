@@ -31,10 +31,19 @@
         const currentYear = dateTime.getFullYear();//Bu sekilde tarih bilgisinin icerisinden yil bilgini aliyoruz.
         const age = currentYear - birthYear;
         alert(age);
-        
-        
        }
-       getAge3(2002)
+       //getAge3(2001)
+
+       function getAge4(birthYear){
+        const dateTime = new Date();//Sistemde o sirada kayitli olan tarih ve saat bilgini almamizi sagliyor 
+        const currentYear = dateTime.getFullYear();//Bu sekilde tarih bilgisinin icerisinden yil bilgini aliyoruz.
+        const age = currentYear - birthYear;
+        return age;
+       }
+       //return eklenmedigi zaman fonksiyon bagimli bir fonksiyon olmaya devam ediyor. Bu sebeple 1'den 4' e dogru 
+       //ilerlerken fonksiyonumuz daha dinamik hale getirerek ilerledik.
+       const age = getAge4(2001); 
+       alert(age);
 
     </script>
 </body>

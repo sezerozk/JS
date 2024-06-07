@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="start" onclick="start()">Start</button>    
+    <div class="hidden" id="gamePanel">
+        <input type="number" name="" id="txtNum">
+        <button id="btn" onclick="predict()">Predict</button>
+    </div>
+    <h4 id="lblResult"></h4>
+    
+
+
+    <script>
+        const txtNum = document.querySelector('#txtNum');
+        const btnPredict = document.querySelector('#btn');
+        const result = document.querySelector('#lblResult');
+        const btnStart = document.querySelector('#start');
+        const gamePanel = document.querySelector('#gamePanel');
+        let randomNumber;//Bu degiskene predict fonksiyonundan ulasmak icin scope'unu degistirdik.
+
+
+        const predict = ()=>{
+            const predictedNumber = Number (txtNum.value); 
+            result.innerHTML = "";
+            if(!predictedNumber || predictedNumber<1 || predictedNumber >100 ){//Boylece kullanicinin 0 girmesi ya da sayi girmemesi halinde uyari mesaji gosteriyoruz. 
+                result.innerHTML = "Hatali deger girisi yaptiniz"
+                return;//Buraya return koymamizin sebebi hata mesajinin goruntulenmesi halinde devaminda yer alan kodlarin calismasini onlemek ve fonksiyonun cagirildigi 
+                //yere donmesini saglamak
+            }
+            if(predictedNumber===randomNumber){
+                result.innerHTML = 'You Won';
+                btnStart.classList.remove('hidden');//Dogru tahmin yapildiginda tekrar oynayabilmek icin tahmin kismini gizleyip start butonunu gorunur yapiyoruz
+                gamePanel.classList.add('hidden');
+            }else if(predictedNumber<randomNumber){
+                result.innerHTML = 'Daha buyuk bir sayi girmelisin';
+            }else if(predictedNumber>randomNumber){
+                result.innerHTML = 'Daha kucuk bir sayi girmelisin';
+            }
+            txtNum.value = "";//Girilen degeri elle silmek yerine otomatik olarak silinmesini sagliyoruz
+            txtNum.focus();//Veri girisi yapmak icin tekrar tiklanaya gerek kalmiyor
+        }
+        const start = () => {
+            btnStart.classList.add('hidden');
+            gamePanel.classList.remove('hidden');
+            randomNumber = generateRandomNumber(100,1);
+            result.innerHTML = "";//Oyun baslarken sonuc kismini temizliyoruz
+            
+        }
+        
+        //Random sayi formulu=> Math.floor(Math.random()*(max-min+1))+min;
+        const generateRandomNumber = (max,min) => {
+            return Math.floor(Math.random()*(max-min+1)+min);
+            //Math.random() fonksiyonu 0 ile 1 arasinda (o dahil bir dahil degil olmak uzere) rastgele sayi uretiyor.
+            //Math.floor() fonksiyonu ile olusturulan rastgele sayinin virgullu kismini atiyoruz.  
+        } 
+
+
+    </script>
+</body>
+</html>
