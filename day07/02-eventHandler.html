@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnSayHello1" onclick="sayHello1()">Say Hello 1</button>
+    <button id="btnSayHello2">Say Hello 2</button>
+    <button id="btnSayHello3">Say Hello 3</button>
+
+    
+
+
+    <script>
+
+        //Bir programda olabilecek olaylarin yakalanmasi ve olay gerceklestiginde istenilen kodlarin calistirilmasi islemine event handling, bu islemi yapan
+        //kodlara da event handler denir.
+        //Event Handler tanimlama yontemleri
+
+        //1. ve geleneksel yontem
+        const sayHello1 = () => alert('Hello 1')//onclick ile bagliyoruz
+
+        //2. Yontem
+        const sayHello2 = () => alert('Hello 2 !');
+        document.querySelector('#btnSayHello2').onclick = sayHello2;//Burada suna dikkat etmek gerek. Fonksiyonu once tanimlayip sonra cagirmamiz gerek.
+        //Aksi halde hata aliyoruz. Yani fonksiyon tanimi 28. satirda oldugundan 28 ve devamindaki satirlarda bulunan kadlar calismiyor.
+        
+
+        //3. Yontem
+        document.querySelector('#btnSayHello3').addEventListener("click", ()=>{
+            alert('Hello 3 !')
+        })
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtNum" oninput="calculate()">
+    <p id="lblResult"></p>
+
+    <script>
+
+        function calculate() {
+            const txtNum = document.querySelector('#txtNum');
+            const lblResult = document.querySelector('#lblResult')
+            
+            const num = Number (txtNum.value)
+
+            let result = isPalindrome(num)
+            if(result){
+                lblResult.innerHTML = "Number is a palindrome number"
+            }
+            else{
+                lblResult.innerHTML = "Number is not a palindrome number"
+            }
+
+        }
+
+        function isPalindrome (num){
+            let control = String (num);
+            let inverseNumber = ""
+            while(num>0){
+                inverseNumber += String (num % 10);
+                num = Math.floor (num/10);
+            }
+            console.log(control);
+            console.log(inverseNumber);
+
+            if(control === inverseNumber){
+                return true;
+            }
+            else{
+                return false;
+            }
+           
+        }
+
+
+    </script>
+</body>
+</html>

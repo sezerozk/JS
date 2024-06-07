@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="txtnum" oninput="calculate()">
+
+    <p id="lblResult"></p>
+
+
+    <script>
+        //Bir sayinin asal sayi olup olmadigini hesaplayan bir fonksiyon yaziniz.
+        //oninput ozelligini ekleyerek input'a ver girildiginde calismasini saglamis olduk.
+        
+        function calculate (){
+            const lblResult = document.querySelector('#lblResult')
+            const txtNum = document.querySelector('#txtnum');
+            const num = Number (txtNum.value);//Girilen degeri number olarak almis olduk
+            //Neden bu sekilde bir if yapisi kurduk? Bilindigi gibi if her seyi mantiksal olarak degerlendirir ve true ya da false bir deger atayarak
+            //sonucuna gore islem yapar. Burada num degiskenin turunu number olarak atadigimiz icin bosluk konuldugunda ya da harf yazildiginda vs. Nan
+            //yani not a number donduruyor ve Nan JS' e gore false tur. Bizde false geldigi durumlarda yani rakam girilmedigi durumlarda hata mesajini 
+            //gostermek istedigimiz icin false'u true yapmak icin !num seklinde bir ifade ile if algoritmaisini kurduk.
+            lblResult.innerHTML = "";//Asagidaki if yapisi ile bir kere Invalid Number yazildiktan sonra, uyari mesaji orada kaldigi icin program her 
+            //calistiginda oncelikle sifirlanmasi ve devaminda invalid number girisi oldugunda hata mesajinin gorulmesi icin burada sifirliyoruz.
+            
+            if(!num){//Rakam disinda deger girisi yapildiginda hata mesaji gosteriyouz. 
+                lblResult.innerHTML = 'Invalid number'
+                return;
+            }
+            if(isPrimeNumber(num)){
+                lblResult.innerHTML = `${num} is a prime number`
+            }
+            else{
+                lblResult.innerHTML = `${num} is not a prime number`
+            }
+        }
+
+        function isPrimeNumber(num){
+           
+            for(let i = 2 ; i < num ; i++){
+                console.log(i);//break'in calisip calismadiginin kontrolu
+                if(num % i === 0){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    </script>
+</body>
+</html>

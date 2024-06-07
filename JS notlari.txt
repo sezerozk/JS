@@ -1,6 +1,15 @@
--->Day 6
-    -->Fonksiyon
-        Fonksiyon, programda tekrar tekrar kullanilabilecek alt programlara denir.
-        Clean kod yazabilmek icin fonksiyon kullanimi cok onemlidir. Bir fonksiyonun bir is yapacak sekilde yazilmasi kodun anlasilablir ve gelistirilebilir olmasi icin 
-        faydalidir.
-        Fonksiyonlar cagirilmadan calismaz.
+-->Fonksiyon
+    Fonksiyon, programda tekrar tekrar kullanilabilecek alt programlara denir.
+    Clean kod yazabilmek icin fonksiyon kullanimi cok onemlidir. Bir fonksiyonun bir is yapacak sekilde yazilmasi kodun anlasilablir ve gelistirilebilir olmasi icin 
+    faydalidir.
+    Fonksiyonlar cagirilmadan calismaz.
+-->Object
+    JS'de basit object tanimi {...} seklinde yapilir.
+    const employee = {
+        firstNAme : 'Ali',
+        lastName : 'Gel',
+        .,
+        .,
+        .
+    }
+    
