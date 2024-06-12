@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        cars = ["Porche", "Ferrari", "Bugatti", "Tesla"];
+        console.log(cars);
+
+        arrayLength = cars.push("Audi");//eleman sayisini return ettigi icin gereken durumlarda kullanilabilir
+        console.log(cars);
+        console.log(arrayLength);
+        cars.pop();
+        console.log(cars);
+        cars.unshift("Audi");
+        console.log(cars); 
+        cars.sort();
+        console.log(cars);
+
+        cars.splice(0,2,"yeni", "eski");
+        console.log(cars);
+
+        cars.splice(0,2);
+        console.log(cars);
+
+        cars.splice(0,0,"Tesla");
+        console.log(cars);
+    </script>
+</body>
+</html> 

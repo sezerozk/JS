@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnGetNum">Get Greatest Number</button>
+    <h4 id="lblResult"></h4>
+
+    <script>
+
+        // Bir dizi icerisindeki en buyuk sayiyi bulan bir program yaziniz
+        sayilar = [15,63,85,124,63,9632];
+        let enBuyukSayi = sayilar[0];
+        document.querySelector("#btnGetNum").addEventListener("click", ()=>{
+            for(let i =0; i < sayilar.length; i++){
+            if(sayilar[i] > enBuyukSayi){
+                enBuyukSayi = sayilar[i];
+            }
+            document.querySelector("#lblResult").innerHTML = enBuyukSayi;
+        }
+        })
+        
+        console.log(enBuyukSayi);
+
+    </script>
+</body>
+</html>
