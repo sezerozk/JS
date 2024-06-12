@@ -12,4 +12,15 @@
         .,
         .
     }
-    
+    -->Methods:
+        Entries; Objedeki degerleri(hem keys hem values) bir dizi icerisinde dondurur.
+        keys; sadece key lerden bir dizi olusturur
+        values; sadece value lerden bir dizi olusturur
+-->Array:
+    Array.isarray(arr); arr nin array olup olmadigini kontrol edip boolean deger dondurur
+    Dizi elemanlarina erismek, bnlari manipule etmek veya iteration yapmak icin cesitli hazir methodlar bulunmaktadir.
+    -->mutator methods; Dizinin icerigini degistirmemizi saglayan methodlardir.
+    push(eleman); dizinin sonuna yeni bir eleman ekler
+    -->access methods; dizi elemanlarina erismemizi saglayan methodlar
+    -->iterator methos; dizi elemanlariyla fongu yapmek icin kullandigimiz methodlar 
+- JS de liste yapisi kullanilmiyor. BU ihtiyac dizilerle gideriliyor. 
