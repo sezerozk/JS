@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <p id="p1">Hello World</p>
+        <p>
+            <span style="display: none;">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, accusamus?
+            </span>
+        </p>
+    </div>
+
+    <script>
+        //Yukarda span etiketine verdigimiz stil ozelligi sayesinde sayfanin kaynak kodunda gorulebilen bu metin sayfada gizlenmis oluyor.
+        //DOM elements
+        const container = document.querySelector(".container"); 
+        const p1 = document.getElementById("p1");
+
+        console.log(container.innerText);//Hello World
+
+        console.log(container.innerHTML);//Bu sekilde kullanildiginda HTML yapisini goruyoruz.
+
+        console.log(container.textContent);//Artik gizlenmis olan metni de gorebiliyoruz.
+
+        p1.innerText = "Hello Worl 2";//Elementin icerisindeki metni degistirdik
+
+
+        p1.innerHTML = "<span style='color: red'>Hello World </span>"
+
+
+
+    </script>
+
+</body>
+</html>

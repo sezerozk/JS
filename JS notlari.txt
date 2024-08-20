@@ -19,8 +19,196 @@
 -->Array:
     Array.isarray(arr); arr nin array olup olmadigini kontrol edip boolean deger dondurur
     Dizi elemanlarina erismek, bnlari manipule etmek veya iteration yapmak icin cesitli hazir methodlar bulunmaktadir.
-    -->mutator methods; Dizinin icerigini degistirmemizi saglayan methodlardir.
-    push(eleman); dizinin sonuna yeni bir eleman ekler
-    -->access methods; dizi elemanlarina erismemizi saglayan methodlar
-    -->iterator methos; dizi elemanlariyla fongu yapmek icin kullandigimiz methodlar 
+    -->mutator methods; Dizinin icerigini degistirmemizi saglayan methodlardir. Bu methodlar dizinin yapisini degistirir-bozar.
+        push(eleman); dizinin sonuna yeni bir eleman ekler ve dizinin eleman sayisini dondurur.  
+        pop(); dizinin son elemanini siliyor ve silinen elemani dondurur
+        shift(); dizinin ilk elemanini siler  ve silinen elemani dondurur
+        .unshift(...); dizinin basina parametre olarak verilen elemani ekler ve eleman sayisini dondurur
+        .sort(); alfabetik olarak listeler ve siralanmis halini dondurur
+        .reverse(); diziyi tersine cevirir ve ters cevrilmis halini return eder.
+        .splice(a,b,c); bu method ile hem silme hem ekleme islemi ayni anda olacak sekilde yapilabiliyor. ilk parametre(a) silme isleminin
+        basladigi indeksi belirtit. Ikinci parametre ile kac tane eleman silinecegi belirtiliyor. Daha sonraki parametrelerde ise eklenecek
+        elemanlari veriyoruz. Silinen elemanlari return ediyor. 
+    -->access methods; dizi elemanlarina erismemizi saglayan methodlar. Access methodlar dizinin yapisini bozmazlar.
+        .concat(a,b); diziye parametrede belirtilen elemanlari ekleyerek yeni bir dizi dondurur. push() methodu ile tek tek yaptigimiz islemi 
+        bu sekilde birden fazla eleman icin ayni anda yapabiliriz. Ayrica psuh() methodunda dizinin yapisi da degismis olur.
+        .include(...); dizi icerisinde aranan elemanin olup olmadigini ogrenmek icin kullaniriz. Aranan eleman
+        varsa true yoksa false doner.
+        .indexOf(...); Aranan elemani bulursa elemanin indeksini bulamazsa -1 doner.
+        .lastIndexOf(...); Aranan elemanin bulundugu son indeksi verir.
+        .join("-"); verilen diziyi parametre olarak verilen isareti her bir elemanin yanina eklemek suretiyle
+        string e donusturur (aslinda diziyi donusturmez, diziden metin yapipi onu dondurur demek daha dogru)
+        ve bu stringi dondurur. toString() methodu da ayni seyi yapiyor fakat elemanlarin arasina her zaman
+        "," koyar.
+        .slice(0,2); 0. elemandan baslayarak 2 tane elemani secer ve o elemanlari dondurur. Yani dizinin 
+        bir bolumunu secip alabiliyoruz. Ilk parametrede verdigimiz indeksteki elemani aliyor. Sonrasinda
+        ikinci paramtredeki indekse kadar olan elemanlari seciyor fakat ikinci parametre olarak verilen 
+        indeksteki elemani secmiyor. Dizinin secilen bolumunu yine dizi olarak dondurur. Bitis indeksi 
+        belirtilmezse dizinin sonuna kadar gider.
+    -->iterator methods; dizi elemanlariyla fongu yapmek icin kullandigimiz methodlar 
+        -->forEach dongusu; istersek iki tane parametre verebiliyoruz ve birinci parametrede uzerinde dongu yapilan eleman ikinci parametrede ise
+        elemanin indeksi saklaniyor. Bu sayede forEach dongusu daha efektif kullanilabilir.
+        -->map; Mevcut bir dizi icerisinde iteration yapip, orjinal dizinin kopyasi uzerinde elemanlarin degistirilmesini saglar ve degisiklik yapilmis
+        diziyi dondurur. Map methodu orjinal diziyi degistirmez.
+        dizi.map((item, index) => {
+            return item*5
+        });
+        -->filter; Mevcut bir dizi icerisinde iteration yapip, orjinal dizinin kopyasi uzerinde filtreleme yapar. Filtrelenmis diziyi geri verir. Filter methodu
+        orjinal diziyi degistirmez.
+        dizi.filter ( (item) => {
+            return item > 5
+        });
+    -->Iterasyon methodlarinin pespese kullanilmasina PIPELINE denir.
+        const koordinatlar = [-11, 150,-32, 43,-20]
+        koordinatlar.filter(x => x<0)
+        .map(t => t*-1)
+        forEach(y => console.log(y));
 - JS de liste yapisi kullanilmiyor. BU ihtiyac dizilerle gideriliyor. 
+--> DOM (Document Object Model)
+    DOM, dokumanlarinin stillerinin, yapisinin, içeriginin erisilmesine ve guncellenmesine olanak saglayan bir nesne modelidir.
+    DOM'a erisim;
+        getElementByID = Elemani id degerinden yararlanarak bulur
+        querySelector = Bir elemani id class, ozellik, tur ve degere gore secmek icin kullanilir. Eslesen ilk elemani secer.
+        querySelectorAll = query selector gibi calisir. Farki eslesen elemanlarin listesini dondurmesidir.
+    DOM guncelleme;
+        innerText = bir elemanin icindki metni getirir veya icine metin yerlestirir
+        innerHTML = Bir elemanin icindeki HTML'i getirir veya icine HTML yerlestirir
+        textContent = innerText ile aynidir. Tek farki stil ozelliklerinden dolayi gizlenmis olan text leri de getirir. 
+    DOM Styles;
+        classList = Bir elemanin class listine erisim saglar 
+            add("class") => classList'e bir class ekler
+            remove("class") => classList'teki bir class i siler
+            toggle("class") => classList'te yoksa class'i ekler varsa siler
+            contains("class") => classList te bir class'in olup olmadigini kontrol 
+    DOM Attributes;
+        getAttribute("attribute")   => Bir elemanin attribute unu getirir
+        setAttribute("attribute","value")   => Bir elemana attribute ekler ya da degistirir
+        removeAttribue("attribute") => Bir elemanin attribute unu siler
+        Attributes  => Bir elemanin tum attribute lerini getirir
+--> Error Handling
+    Hata olmasi muhtemel kodlarda, hatalarin programin akisini engellememesini saglamak ve kullaniciya daha kontrollu ve anlasilir uyarimar vermek icin yapilan 
+    isleme error handling diyoruz.
+    Genellikle kullanicidan bilgi alirken veya bir API dan bilgi cekerken kullanilirlar.
+    TRY-CATCH-FINALLY
+    TRY => Hata olabilecegi dusunulen kodlar try blogu icerisine yazilir
+    CATCH   => Try blogu icerisinde bir hata oldugunda program akisi catch bloguna gecer ve hata ile ilgili bilgi vs. burada bulunur.
+    FINALLY => Hata olsa da olmasa da calistirilan bloktur. Yani her halukarda calismasi gereken kodlari burada yaziyoruz. FINALLY kullanimi opsiyoneldir.
+    .trim() methodu ; verilen ifadenin basindaki ve sonundaki boslujlari silmek icin kullaniliyor.
+    try catch uygulamasi ozellikle end point'e yapilan isteklerin istenilen sekilde donup donmediginin kontrol edilebilmesi icin yogun bir sekilde kullaniliyor.
+--> setTimeout( () => {
+        gecikmeli olarak
+        calisacak olan kodlar 
+        buraya yazilir
+},500);
+    setTimeout methodu ile gecikmeli olarak calismasi istenilen kodlar, time out olustutularak ve belli bir gecikme zamani belirlenerek calistirilabilir.
+    setTimeout methodunun Asenkron yapida calistigini unutmamak gerek! setTimeout methodu her zaman geriye bir id dondurur. Bu id yapilan setTimeout isleminin id sini temsil eder. Normalde bu id uzerinden
+    bu islemin kac defa gerceklestigi kontrol edilebilir. Fakat sayfada calisan baskaca setTimeout lar varsa id 1 den baslamayacagi icin id nin kactan itibaren basladigina dikkat edilmesi gerekir.
+    clearTimeout () methodu ile timer durdurulabilir.
+--> Interval
+    Belli periyotlarla calismasi istenilen kodlar, interval olusturularak ve belli bir zaman belirlenerek calistirilabilir.
+    setInterval ( ()=>{
+        belirtili
+        araliklarla
+        calisacak olan 
+        kodlar
+    },500 )
+    setInterval methodunu durdurmak icin clearInterval() methodunu kullaniyoruz.
+--> Rest & Spread Operator
+    Rest ve spread operatorleri 3 nokta(...) ile ifade edilirler ancak birbirlerinden farklidirlar.
+    Rest --> Farkli degiskenlerden gelen verileri bir dizi icerisinde toplar.
+    Spread --> Dizi veya object icindeki verileri ayri degiskenlere acar.
+    Hem rest hem spread operatorleri ikinci derece diziler ile calismaz.
+    Spread operatorunu object ya da dizileri birlestirmek icin kullanabiliriz. Burada onemli olan husus object ler birbirlerine baglidirlar ve bu nedenle atama yaptigimiz ihtimalde
+    bir yerde yaptigimiz degisiklik diger yerde de degisiklige neden olabilir. Spread operatoru bu baglantiyi kirar.  
+--> Destructuring
+    Bir nesnenin degerlerinin degiskenlere acilmasi islemine destructuring denir.
+    let (variable1, variable2) = object;
+--> Modules 
+    Moduller, JS kodlarini bolerek farkli dosyalardan cagirmak ve boylece buyuk projelerde kod karmasasinin onune gecmek icin kullanilan bir yontemdir.
+    export --> Disari aktarma
+    import --> Içe aktarma
+    day 13 te olusturdugum moduller-fonksiyonlar dosyasindan moduller-data dosyasina ulasmak istiyorum. Burada iki secenek soz konusu; birincisi dogrudan disari aktarmak istedigim
+    degiskenin basina export ifadesini eklemek. Daha sonra moduller-fonksiyonlar.js dosyasinin en basina import {myArray} from "./07-moduller-data.js" kod blogunu ekleyerek 
+    olusturdugumuz degiskene ulasabiliyoruz. Burada hata almamak icin html dosyasindaki script in type ina type = "module" attribute une de eklemek gerekli. Ayrica myArray ismini 
+    de dogru yazmak gerek. Ikinci secenek ise disa aktarmak istedigimiz degiskeni export default myNewArray; seklinde disa aktarmak. Bu sekilde disa aktarildigi takdirde import ederken 
+    diger yoldan farkli olarak soyle bir kod blogu ile import ediyoruz; import x from "./07-moduller-data.js" Yani import ettigimiz degiskeni import ettigimiz yerde farkli 
+    sekilde isimlendirebiliyoruz. 
+--> ASYNC - SYNC YAPI 
+    Javascript tek bir thread uzerinde calisiyor. Bu nedenle kural olarak JS senkron yapida calisir.
+    Asenkron yapinin calisma mantigi su sekilde; sirali olarak kodlar islenirken asenkrin olarak calisan bor kod blogu ile karsilasildiginda bakkalin çiragi orneginde oldugu gibi sanki baskaca bir thread
+    var da o da bu kod blogu uzeinde calisiyormusçasina asenkron kodlar çiraga verilir ve usta kodlari islemeye devam eder. Dikkat edilmesi gereken nokta ise asenkron yapida calisan kodlar senkron yapida 
+    calisan kodlardan sonra islenir. Bu sekilde bir kullanim olmasinin sebebi agir islerin asenkron yapida yapilmasi ve bu arada diger kodlarin islenmeye devam etmesi sayesinde web sitelerinin daha hizli 
+    yuklenmesidir.
+    setTimeout ile calisirken bekleme icin verilen sure ile asenkron yapilan icerisindeki siralama belirleniyor. 1000 ms bekleyen is 3000 ms bekleyen kod blogundan daha once isleniyor.
+    Belirtilen yapilan asenkron olarak calisirlar; 
+        Event Listener (aksi halde ornegin tiklam islemi icin tiklanana kadar beklemesi gerekecekti)
+        setTimeout
+        setInterval
+        Promise
+        fetch
+        XmlHttpRequest
+        Stream
+        Worker
+    --> CALLBACKS
+        Asenkron calisan fonksiyonlardan veri dondurmek icin callback fonksiyonlar kullanilir.
+    --> CALLBACK CHAINS
+        Asenkron yapilanrin birbirini bekleyerek calismasi icin callback fonksiyonlardan olusan bir zincir yapilir ve buna callback chain denir.
+        IC ICE CALLBACK CAGIRILDIGINDA OLUSABILECEK SORUNLAR 
+        - Callback'in beklenenden daha erken cagirilmasi
+        - Callback'in hic cagirilmamasi
+        - Callback'in beklenilenden az veya çok çagirilmasi
+        - Callback'in gerekli parametreleri dogru bir sekilde alamamasi
+    --> PROMISES
+        Promise yapilari, callbcakler gibi asenkron sonuclari isleyebilmek icin kullanilan, callback lerdeki bazi sorunlari da ortadan kaldiran daha guvenilir yapilardir.
+        1- Bir fonksiyon olusturulur
+        2- Promise yapisi return edilir
+        3- Promise yapisi new Promise () ile olusturulur
+        4- Promise yapisi icerisine bir callback fonksiyonu alir
+        5- Callback fonksiyonu icerisine resolce ve reject parametrelerini alir 
+        6- Mantiksal ifadeler resolve ve reject sonuclarina ulasmadan yazilir(if icerisinde resolve else icerisinde reject kullanilir)
+        7- Eger sartlar saglanirsa resolve () fonksiyonu calistirilir
+        8- resolve fonksiyonunun icerisine istenilen deger yazilir
+        9- fonksiyon calistirilir
+        10- fonksiyona than ve catch yapilari eklenir
+        11- Than ve catch yapilarinin icerisine callback fonksiyonlari yazilir
+        12- than yapisinda calisan callback fonksiyonu parametreden resolve'daki degeri alir  
+        13- catch yapisinda calisan callback fonksiyonu parametreden reject deki degeri alir.
+    --> PROMISE CHAIN
+        Promise zincirleri pes pese calismasi gereken asenkron islemler icin kullanilir.
+        Bir asenkron islemin cevabi geldiginde bir sonraki asenkron islem baslatilir.
+--> Kodlari formatlamak icin alt+shift+f tuslari kullaniliyor.
+--> For ...of dongusu;
+    Bu, JavaScript'te nispeten yeni bir döngü türüdür ve diziler gibi yinelenebilir (iterable) nesneler üzerinde dolaşmak için kullanılır.
+    for (let element of iterable) {
+    // kodlar
+    }
+    --> Hem yukarida bahsedilen for yapisini hem de rekursif(yinelemeli) fonksiyonlari anlamak acisindan faydali bir fonksiyon;
+        function getLength(arr) {
+            let count = 0;
+            for (let item of arr){
+                if(Array.isArray(item)){
+                    count += getLength(item) --> Ozellikle burada fonksiyonu yeniden cagirirken return den gelen cevabin count'a eklenmesi kritik bir nokta.
+                } else {
+                    count ++
+                }
+            }
+            return count;
+        }
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+  

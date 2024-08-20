@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Hava Durumu Uygulaması</h1>
+    <select id="citySelect">
+        <option value="">Şehir Seçin</option>
+        <option value="istanbul">İstanbul</option>
+        <option value="ankara">Ankara</option>
+        <option value="izmir">İzmir</option>
+    </select>
+    <button id="getWeatherButton">Hava Durumunu Göster</button>
+    <div id="weatherInfo"></div>
+
+    
+    <script>
+
+        //DOM ELEMENTS
+            const getWeatherButton = document.querySelector("#getWeatherButton");
+            const weatherInfo = document.querySelector("#weatherInfo");
+            const citySelect = document.querySelector("#citySelect");
+
+        //EVENT LISTENERS
+        getWeatherButton.addEventListener ('click', () => {
+            getWeather();
+        } );
+
+        function updateWeatherInfo (message) {
+            weatherInfo.textContent = message;
+        };
+
+        function getWeather () {
+            const city = citySelect.value;
+            getLocation(city)
+            .then(fetchWeatherData)
+            .then(displayWeather)
+            .catch((error) => {
+                updateWeatherInfo(`Hata: ${error}`);
+
+                setTimeout( () => updateWeatherInfo(""),3000 )
+            });
+            
+        };
+
+        function getLocation (city) {
+            return new Promise ( (resolve, reject) => {
+                setTimeout ( () => {
+                    if(city) {
+                        updateWeatherInfo("Konum bilgisi aliniyor");
+                        resolve({ciyt: city, lat: 41.15, lon: 28.63});
+                    } else {
+                        reject("Lutfen bir sehir seciniz")
+                    }
+                },1000 )
+            } )
+        };
+
+        function fetchWeatherData () {
+            return new Promise ( (resolve) => {
+                setTimeout ( () =>{
+                    updateWeatherInfo("Hava durumu verileri aliniyor");
+                    const weathers = ["Gunesli", "Yagmurlu", "Bulutlu", "Ruzgarli"];
+                    const temp = Math.floor(Math.random()*30)+5;//5 ile 35 arasi rastgele sicaklik
+                    resolve({weather: weathers[Math.floor(Math.random()*weathers.length)], temp: temp});
+                },2000 )
+            } )
+        };
+
+        function displayWeather (weatherData) {
+            return new Promise ( (resolve) => {
+                setTimeout( () => {
+                    const message = `Hava Durumu: ${weatherData.weather}, Sicaklik: ${weatherData.temp}°C`;
+                    updateWeatherInfo(message);
+                    resolve();
+                },1000 )
+            } );
+        }
+
+
+
+
+    </script>
+</body>
+</html>

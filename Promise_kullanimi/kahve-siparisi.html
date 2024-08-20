@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>KAHVE SIPARISI</h1>
+    <button id="btn">SIPARIS VER</button>
+    <div id="asama"></div>
+
+
+
+
+    <script>
+        //1- Kahve siparisi alma
+        //2- Kahveyi hazirlama
+        //3- Musteriye teslim etme
+
+        //DOm ELEMENTS
+        const orderBtn = document.querySelector("#btn");
+        const result = document.querySelector("#asama");
+
+        //EVENT LISTENERS
+        orderBtn.addEventListener ('click', () => {
+            processOrder();
+        } )
+
+        function updateStatus (message) {
+            result.textContent = message;
+        };
+
+        function processOrder () {
+            updateStatus("Siparis islemi baslatiliyor");
+            takeOrder()
+            .then(prepareCoffee)
+            .then((result) => {
+                updateStatus(result);
+            })
+        };
+
+        function takeOrder () {
+            return new Promise ( (resolve) => {
+                setTimeout ( () => {
+                    updateStatus("Siparisiniz alinmistir");
+                    resolve("Latte")
+                },1000 );
+            } );
+        };
+
+        function prepareCoffee () {
+            return new Promise ( (resolve) => {
+                setTimeout ( () => {
+                    updateStatus("Kahveniz hazirlaniyor");
+                    resolve ("Kahveniz hazir")
+                },1000 )
+            } );
+        };
+
+    
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="loadButton">Icerigi Yukle</button>
+    <div id="contentArea">
+        Icerigi yuklemek icin yukaridaki butona tiklayin
+    </div>
+
+
+    <script>
+        //DOM ELEMENTS
+        const loadButton = document.getElementById("loadButton");
+        const contentArea = document.querySelector("#contentArea");
+
+        //EVENT LISTENERS
+        loadButton.addEventListener('click',() => {
+            loadContent();
+        })
+
+
+        const loadContent = () => {
+            contentArea.innerText = "Icerik yukleniyor";
+            setTimeout(()=>{
+                const icerik = "Icerik yulendi"
+                icerigiGuncelle(icerik);
+            },2000)
+        }
+
+        const icerigiGuncelle = (icerik) => {
+            contentArea.innerText = icerik;
+        }
+
+
+    </script>
+</body>
+</html>
