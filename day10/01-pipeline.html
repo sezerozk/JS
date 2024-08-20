@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+        const products = [
+            {id: 1, name : "laptop", price : 20000},
+            {id: 2, name : "mobile", price : 10000},
+            {id: 3, name : "watch", price : 5000},
+            {id: 4, name : "headphone", price : 1000},
+            {id: 5, name : "mouse", price : 500},
+            {id: 6, name : "keyboard", price : 300},
+            {id: 7, name : "mousepad", price : 150},
+            {id: 8, name : "headset", price : 150},
+            {id: 9, name : "earphone", price : 150},
+            {id: 10, name : "speaker", price : 150}
+        ]
+
+        //Fiyati 500den kucuk olan urunlerin fiyatina %30 zam yapip bunlari console da gosteren bir program yaziniz
+
+        products.filter(x => x.price<500).map(y => y.price*=1.3).forEach(z => console.log(z));
+        //Bu yapida dikkat edilmesi gerekn bazi noktalar var. Oncelikle filter methodu filtreleme yaparken dizinin yapisinda degisiklik yapmadigi icin
+        //filter methodunu kullanarak fiyati 500 den kucuk olan ogeleri buluyoruz fakat sadece fiyat bilgisini alamiyoruz yani filter kullanildiktan sonra dizimiz 
+        //const products = [
+        // {id: 6, name : "keyboard", price : 300},
+        //     {id: 7, name : "mousepad", price : 150},
+        //     {id: 8, name : "headset", price : 150},
+        //     {id: 9, name : "earphone", price : 150},
+        //     {id: 10, name : "speaker", price : 150}
+        // ]
+        //bu sekle burunuyor. Burada dikkat edilmesi gereken diger nokta ise filter in her zaman bir dizi donduruor olusudur. 
+        //Bu dizinin uzerinde map ile iteration yaptigimizda ise sadece fiyat bilgilerinin oldugu yeni bir dizimiz oluyor.
+        //Cunku map sadece manupulation yaptigimiz kismi return ediyor.
+        //Bir de paarametre olarak X,y ve z degiskenlerini vermis olsak da bunlarin farkli olmasi zorunlu degil. Istersek her ucunde de parametre icin
+        //ornegin item diyerek kullanabiliriz.
+    </script>
+</body>
+</html>

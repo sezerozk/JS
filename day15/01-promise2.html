@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>PROMISE 2</h1>
+    <div>
+        <button id="btn">Confirm</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        //DOM ELEMENTS
+        const confirmButton = document.querySelector("#btn");
+        const result = document.querySelector("#result");
+
+
+        //EVENT LISTENERS
+        confirmButton.addEventListener('click', () => {
+            asyncConfirm("Bu kullaniciyi silmek istediginize emin misiniz ?")
+            .then( (onay) => {
+                result.innerText = onay;
+                console.log(onay);
+            } ).catch( (ret) => {
+                result.innerText = ret;
+                console.log(ret);
+            } );
+        }  );
+
+
+
+        //PROMISE
+        function asyncConfirm (message) {
+            return new Promise ( (resolve, reject) => {
+                const response = confirm (message);
+
+                if (response) {
+                     resolve("ONAYLANDI");//resolve ya da reject ile gonderilen mesaj olmak zorunda degil her ne istersek gonderebiliriz
+                } else {
+                    reject ("REDDEDILDI");
+                }
+            } );
+        };
+
+
+
+
+    </script>
+</body>
+</html>

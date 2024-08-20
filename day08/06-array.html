@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //Acces Methods
+
+        const cars1 = ["Porche", "Ferrari", "Tesla", "Bugatti", "Tesla"];
+        const cars2 = ["Land Rover", "Mitsubishi", "Mini Coper"];
+
+        const arr1 = cars1.concat(cars2);
+        console.log(arr1);
+        console.log(cars1);
+        console.log(cars1.includes("Porche"));
+
+        console.log(cars1.indexOf("Tesla"));
+        console.log(cars1.lastIndexOf("Tesla"));
+
+        console.log(cars1.join());//default olarak , ekliyor
+        console.log(cars1.join("ttt"));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST OPERATORU</title>
+</head>
+<body>
+     <h1>REST OPERATORU</h1>
+
+     <script>
+        //Ilk uc elemanin carpimi ile geriye kalan sayilarin toplamini bulalim.
+        
+        const arr = [1,2,3,4,5,6,7,8,9,10];
+        
+        const topla = (a,b,c, ...geriKalanSayilar) => {
+            const carpim = a*b*c;
+            const toplam = geriKalanSayilar.reduce((acc, curr) => {
+                return acc+ curr;
+            }, carpim);
+            return toplam;
+        };
+
+        const sonuc = topla(...arr);
+        console.log(sonuc);
+
+        //Yukaridaki kod blogunun calisma algoritmasi su sekildedir. Ilk olarak topla isimli bir fonksiyon olusturduk. Bu fonksiyonun islevi kendisine arguman olarak verilen
+        //degerlerden ilk ucunu carparak geriye kalanlari bu carpimin uzerine eklemektir. Kac tane arguman verilecegi belli olmadigi icin fonksiyonun parametre kisminda rest 
+        //operatoeunu kullandik. Sonrasinda toplama islemini yapmak icin dongulerden faydalanmak yerine reduce() methodunu kullandik. reduce() methodu iki parametre aliyor. Bunlardan 
+        //birincisi bir fonksiyon. Bu fonsiyon icerisinde yapilacak islemlerin kadlarini yaziyoruz. Ikinci parametre ise baslangic degerini ifade ediyor. reduce () methodu  array lerde 
+        //uygulanan bir methoddur. reduce() metdonun ilk parametresi olan fonksiyonun iki adet parametre var. Bunlardan birinci ornegimizde o ana kadar ki toplam degeri temsil eden acc, ikincisi
+        //ise o sirada isleme dahil edilen guncel deger (curr). 
+        //Daha sonrasinda methodu arr dizisini parametre olarak vererek cagirdik ve bulunan sonucu, sonuc degiskenine atadik. Ancak burada dikkat edilmesi gereken bir husus var. Soyle ki arr
+        //dizisini spread operatoru kullanmadan parametre olarak verdigimiz takdirde method tarafindan vardigimiz dizi oldugu gibi tek bir eleman kabul edilip islem yapildigi icin Nan hatasi
+        //aliyorduk. Bundan kacinmak icin diziyi arguman olarak gonderirken spread operatoru ile dizi icindeki elemanlari dizi disina acarak gonderdik. 
+
+        
+     </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input 
+        type="search"  
+        id="debounceInput" 
+        placeholder="type to search">
+    </div>
+
+    <script>
+         //DOM Elements
+        let debounceInput = document.getElementById('debounceInput');
+        let debounceTimer;
+
+        const debounceSearch = function (event) {
+            
+            //clearTimeout(debounceTimer);
+            
+            debounceTimer = setTimeout (()=>{//debounceTimer i setTimeout tan gelen id ile eslestiriyoruz
+                console.log("Searching for; " , event.target.value);
+                //console.log('Searching for; ', debounceInput.value); 
+                },1000 )
+            
+            
+            
+        };
+
+         //EVENT LISTENERS
+         debounceInput.addEventListener('keyup', debounceSearch )
+         //Yukarudaki kod blogu ile yapilmak istenilen kisaca su; oncelikle add event listeener da "keyup" kullanarak kullanicinin input kuutu ustunde tusa basip basmadigini kontrol
+         //ediyoruz ve bastigi takdirde debounceSearch methodunu calistiriyoruz. Bu methodun calisma algoritmasi su sekilde kurgulandi. Method calistiginda setTimeout ile o sirada 
+         //input kutusuna yazilan metni console a yazdiriyoruz ve bu islemi 1 saniyelik gecikmelerle yapiyoruz. Ancak her ne kadar 1 saniyelik gecikme ile  yapsak da netice olarak 
+         //input uzerinde tusa her basildiginda bu fonksiyon calisiyor ve tuslanan her bir harf console a yazdirilmis oluyor. Oysa ki bizim buradaki amacimiz kullanici bir saniye gecmeden
+         //tekrar bir tusa basarsa eski yazdirma islemini iptal ederek guncel degeri yazdirmak. Boylece bu input kutusunun bir arama kutusu oldugunu dusunecek olursak end point' e olabildigince
+         //az sayida istek gondermis oluyoruz. Bunu saglmak icin ise clearTimeout methodunu kullaniyoruz. Clear timeout methoduna debounceTimer uzerinden bir onceki setTimeout methodunun id sini
+         //veriyoruz ve silinmesini saglamis oluyoruz. Sonuc olarak kullanici her bir tusa basisi ile setTimeout methodu calisiyor fakat bir saniye gecmeden tekrar tusa basarsa tekrar calismis oluyor
+         //ve bu arada bir onceki calisma siliniyor ve icerisindeki kodlar da calismamis oluyor. Boylece daha performansli bir programa sahip oluyoruz.
+    </script>
+</body>
+</html>

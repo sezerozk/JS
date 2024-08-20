@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DESTRUCTURING</h1>
+
+
+    <script>
+        const ogrenci = {
+            firsname : "John",
+            lastname : "Doe",
+            age : 18,
+            department : "Computer Science"
+        }
+
+        const {age, firsname, lastname, department} = ogrenci;//object lerde destructuring kullanirken degisken isimleri anahtar isimleri ile ayni olmak zorunda.
+
+        console.log(age);
+        console.log(firsname);
+        console.log(lastname);
+        console.log(department);
+        //Bu sayede object icerisindeki verileri degisken olarak disari cikararak kullanabiliyoruz. Hiz ve okunurluk acisindan faydali olabilir. Ayni islemi array lerde de yapabiliyoruz.
+
+
+        // ARRAY LERDE DESTRUCTURING
+        const arr = ["John", "Doe", 18, "Computer Science"];
+        const [myfriend, myOtherFriend] = arr;
+        console.log(myfriend);
+        console.log(myOtherFriend);
+        //Array lerde destructuring kullanirken dikkat edilecek husus datalarin siralamasidir.
+
+    </script>
+</body>
+</html>

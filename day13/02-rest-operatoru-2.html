@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST OPERATORU 2</title>
+</head>
+<body>
+    
+    <H1>REST OPERATORU 2</H1>
+
+    <script>
+        //Ogrencinin adi ve soyadi ile birlikte belirsiz sayida notu parametre olarak alan ve notlarin ortalamsini bulup, ogrenci adi ile birlikte ortalamayi donduren bir fonksiyon yaziniz.
+        
+        const ogr1 = ["ali", "gel", 65, 85, 90, 100];
+        
+
+        const ortalamaHesapla = (ad, soyad, ...notlar) => {
+            let ortalama = notlar.reduce((acc, curr)=>acc+curr,0)/notlar.length;
+            return `${ad} ${soyad} not ortalamasi : ${ortalama}` 
+        };
+        
+        console.log(ortalamaHesapla(...ogr1));
+
+
+    </script>
+</body>
+</html>

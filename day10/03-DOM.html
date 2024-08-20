@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bg-red{
+            background-color: rgb(212, 93, 93);
+        }
+    </style>
+</head>
+<body>
+    
+    <table id="students">
+        <thead>
+            <tr>
+                <th>ADI</th>
+                <th>PUAN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ALI</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>Metin</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>Feyyaz</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>Ayse</td>
+                <td>85</td>
+            </tr>
+            <tr>
+                <td>Fatma</td>
+                <td>25</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="btnSetScores">Set Scores</button>  
+
+
+    <script>
+
+        document.getElementById("btnSetScores").addEventListener("click",()=>{
+        const tdScores = document.querySelectorAll("#students tbody tr td:last-child");
+        //tdScores u bir dizi olarak almis olduk.
+        tdScores.forEach((item)=>{
+            //console.log(item.innerText);
+
+            const score = item.innerText;
+            if(score<50){
+                //item.classList.add("bg-red");Bu sekilde yazdigimizda sadece notlarin oldugu bolumun arka plan rengi kirmizi oldu
+                //tum satiri kirmizi yapmak icin closest komotunu kullaniyoruz.
+
+                item.closest("tr").classList.add("bg-red");//Yani sunu demis oluyoruz. Item td(table data) yi verdigi icin
+                //onun uzerinden td(table raw) ye ulasmak icin tr ye en yakin td yi ver demis oluyoruz.
+                //closest ile kardes element secemiyoruz. Ust soya dogru gitmek gerek.
+            }
+        })
+        })
+
+    </script>
+</body>
+</html>

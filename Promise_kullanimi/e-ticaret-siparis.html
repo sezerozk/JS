@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> SAT SAT :))</h1>
+    <div>
+        <button id="orderBtn">SIPARIS VER</button>
+    </div>
+    <div id="textArea"></div>
+
+
+    <script>
+        /*
+        Bir e-ticaret sitesi için bir sipariş işleme sistemi oluşturduğunuzu düşünün. Bu sistem şu adımları içerir:
+    
+            1- Kullanıcının sepetini kontrol etme
+            2- Stok durumunu kontrol etme
+            3- Ödeme işlemini gerçekleştirme
+            4- Sipariş onayı gönderme
+        */
+
+        //DOM ELEMENTS
+        const orderBtn = document.querySelector("#orderBtn");
+        const situation = document.querySelector("#textArea");
+
+        function processOrder() {
+            checkPanier()
+                .then(checkStock)
+                .then(processPayment)
+                .catch( (error) => {
+                    updateSituation(`Hata: ${error}`)
+
+                    setTimeout (()=> updateSituation(""),2000)
+                })
+        };
+        processOrder()
+
+        function checkPanier() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const statusPanier = Math.round(Math.random());//Math.random 0 dahil 1 haric arasinda bir ondalik sayi uretir. Math.round() bu sayiyi en yakin tam sayiya yuvarlar.
+                    const produits = { "Sac à dos": 48.99, "Ecouteurs Bluetooth": 60.99, "Montre Homme": 108.29 }
+                    if (statusPanier) {
+                        updateSituation("Alis veris sepetinizdeki urunler tespit edildi, stok durumu belirlendikten sonra bilgilendirileceksiniz");
+                        resolve(produits);
+                    } else {
+                        
+                        reject("Sepetinizde ekli urun bulunmamaktadir");
+                    }
+                }, 1000);
+            });
+        };
+
+        function checkStock(produits) {
+            updateSituation("Satin almak istediginiz urunlerin stok durumu kontrol ediliyor");
+            return new Promise((resolve) => {
+                const a = Object.keys(produits);
+                setTimeout(() => {
+                    updateSituation(`Stokta olan urunlermiz: ${a[0]}, ${a[1]}, ${a[2]}`);
+                    resolve(produits);
+                }, 1000)
+            });
+        };
+
+        function processPayment(produits) {
+
+            sommeTotale(produits)
+            .then(payement)
+        };
+
+        function sommeTotale(produits) {
+            updateSituation("Satin almak istedigniz urunlerin toplam fiyati hesaplaniyor")
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    const somme = Object.values(produits).reduce((acc, curr) => {
+                        return acc + curr;
+                    }, 0)
+                    updateSituation(`Satin almak istediginiz urunlerin toplam fiyati : ${somme} `)
+                    resolve(somme);
+                }, 1000)
+            });
+        };
+
+        function payement (somme) {
+            updateSituation("Odeme kontrolu gerceklestiriliyor");
+            return new Promise ( (resolve, reject) => {
+                setTimeout ( () => {
+                    if(1) {
+                        resolve(updateSituation(`Odeme basri ile gerceklestirildi. Odenen tutar: ${somme} Eurodur`))
+                    } else {
+                        updateSituation("Odeme sirasinda beklenmeyen bir hata olustu. Lutfen tekrar deneyin.")
+                        reject("Bir hata olustu")
+                    }
+                },1000 )
+            } )
+        }
+
+
+        function updateSituation(message) {
+            situation.textContent = message;
+        };
+
+
+
+    </script>
+</body>
+
+</html>

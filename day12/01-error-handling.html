@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling</title>
+</head>
+<body>
+    
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group"></div>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="action-buttons">
+                <button type="submit">Login</button>
+                <button type="button">Register</button>
+            </div>
+        </form>
+    </div>
+
+     <script>
+        //DOM Elements
+        const loginForm = document.querySelector("#loginForm")
+        
+
+        //Event Listeners
+        loginForm.addEventListener("submit", (event)=>{//Fonksiyona parametre olarak verilen event -bazen sadece e olarak da kullaniliyor- ile dinlenilen islemle
+                                                       //ilgili bilgilere ulasabiliyoruz. Ozellikle event.target ile event in nerede gerceklestigini bilebiliyoruz. 
+            event.preventDefault();
+            const username = document.querySelector("#username").value;
+            const password = document.querySelector("#password").value;
+            
+            try{
+                if(!username.trim()){
+                    throw new Error("Kullanici adi bos birakilamaz")
+                } 
+                if(!password.trim()){
+                    throw new Error("Sifre bos birakilamaz")
+                }              
+            } catch (error) {
+                console.log(error.message)
+                
+            } finally{
+
+            }
+             
+        })
+
+     </script>
+</body>
+</html>

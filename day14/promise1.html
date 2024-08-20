@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>PROMISE</h1>
+
+
+    <script>
+        const hamburgerimNerede = () => {
+            return new Promise ( (resolve, reject) => {
+                const pismeOrani = 8;
+
+                if(pismeOrani > 5) {
+                    setTimeout ( () => {
+                        resolve(pismeOrani);
+                    },2000 );
+                } else {
+                    reject('Pisme orani yetersizdir ');
+                }
+            } )
+        };
+
+        hamburgerimNerede()
+        .then( (hamburgerimOlmus) => {
+            console.log(hamburgerimOlmus);
+        } )
+        .catch( (hamburgerimYanmis) => {
+            console.log (hamburgerimYanmis);
+        } );
+    </script>
+</body>
+</html>
